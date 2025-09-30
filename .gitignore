@@ -1,0 +1,25 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.so
+
+# Django
+db.sqlite3
+.env
+*.log
+*/migrations/
+
+# Virtualenv
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+# Others
+*.egg-info/
+pip-wheel-metadata/

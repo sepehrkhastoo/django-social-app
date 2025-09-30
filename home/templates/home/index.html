@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="" method="get">
+        {{ form.as_p }}
+        <input type="submit" value="search">
+    </form><br/>
+
+    <div class="card bg-white text-dark">
+        {% for post in posts %}
+            <p><a class="card-header " href="{% url 'account:user_profile' post.user.id %}">{{ post.user.username }}</a>{{ post.updated|timesince }}</p>
+            <a class="card-body" href="{{ post.get_absolute_url }}" class="card-body">{{ post.body|truncatewords:8 }}</a>
+
+            <hr>
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}
