@@ -1,49 +1,62 @@
 # Django Social App
 
-A Django project with custom user authentication, profile management, and follower system.
+A simple Django project with user authentication, profiles, and a follow system.
 
 ## Features
-- User registration & login (with email backend support)
-- User profile with signals (auto-create profile)
-- Follow/unfollow system (Relation model)
-- Password reset views & forms
-- Clean project structure (separated account app)
+- Register / login with email backend
+- User profiles created automatically using signals
+- Follow / unfollow users (Relation model)
+- Basic templates for login, register, profile, password reset
+- Example home app with simple CRUD
 
-## Getting Started
+## Requirements
+- Python 3.11+
+- Django 5.x
 
-### 1. Clone the repository
+## Installation
+
+Clone the repo:
+
 ```bash
 git clone https://github.com/USERNAME/REPO_NAME.git
 cd REPO_NAME
 ```
 
-### 2. Setup virtual environment
+Create a virtual environment and activate it:
+
 ```bash
 python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+venv\Scripts\activate  # On Windows
+source venv/bin/activate # On Linux/Mac
 ```
 
-### 3. Install dependencies
+Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Setup environment variables
-Rename `.env.example` to `.env` and edit values if needed.
+Setup environment variables:
 
-### 5. Run migrations
 ```bash
-python manage.py migrate
+cp .env.example .env
 ```
 
-### 6. Run the development server
+Run migrations and start the server:
+
 ```bash
+python manage.py migrate
 python manage.py runserver
 ```
 
-## Deployment
-- Configure SECRET_KEY, DEBUG=False, and ALLOWED_HOSTS in `.env`
-- Use a production server (gunicorn, nginx, etc.)
+## Tests
+
+Run the test suite with:
+
+```bash
+python manage.py test
+```
 
 ## License
+
 MIT License

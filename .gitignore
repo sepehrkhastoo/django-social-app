@@ -9,13 +9,15 @@ __pycache__/
 db.sqlite3
 .env
 *.log
-*/migrations/
+/media/
+/staticfiles/
 
 # Virtualenv
 venv/
+.venv/
 env/
 
-# IDEs
+# IDEs and tools
 .vscode/
 .idea/
 .DS_Store
