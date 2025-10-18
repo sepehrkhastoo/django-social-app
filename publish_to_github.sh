@@ -1,24 +1,26 @@
-REMOTE_URL="https://github.com/sepehrkhastoo/django-social-app.git"
+#!/bin/bash
+# Simple script to automate commit and push to GitHub
 
-set -e
+echo "🧹 Cleaning __pycache__ and temporary files..."
+find . -type d -name "__pycache__" -exec rm -rf {} +
 
-echo "Initializing git repository (if not already initialized)..."
-git init || true
+echo "🪄 Formatting code with black..."
+black .
 
-echo "Adding files (respecting .gitignore)..."
+echo "📦 Adding changes..."
 git add .
 
-echo "Committing changes..."
-git commit -m "Initial commit" || true
+echo "📝 Enter commit message:"
+read msg
 
-echo "Setting main branch..."
-git branch -M main || true
+if [ -z "$msg" ]; then
+  msg="Auto update"
+fi
 
-echo "Adding remote origin..."
-git remote remove origin 2>/dev/null || true
-git remote add origin "$REMOTE_URL"
+echo "💾 Committing..."
+git commit -m "$msg"
 
-echo "Pushing to remote..."
-git push -u origin main
+echo "🚀 Pushing to main..."
+git push origin main
 
-echo "Done. Check your GitHub repository."
+echo "✅ Done!"
